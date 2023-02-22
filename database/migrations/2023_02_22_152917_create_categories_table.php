@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMicronutrientsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateMicronutrientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('micronutrients', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->tinyInteger('unit');
-            $table->text('description')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('background_image')->nullable();
+            $table->string('category_name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateMicronutrientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('micronutrients');
+        Schema::dropIfExists('categories');
     }
 }

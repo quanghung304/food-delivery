@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdvicesTable extends Migration
+class CreateOrderDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateAdvicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('advices', function (Blueprint $table) {
+        Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image')->nullable();
-            $table->integer('micronutrient_level_id');
-            $table->text('description');
-            $table->integer('category_id');
-            $table->string('parameter')->nullable();
+            $table->integer('order_id');
+            $table->integer('product_id');
+            $table->integer('amount');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateAdvicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advices');
+        Schema::dropIfExists('order_details');
     }
 }

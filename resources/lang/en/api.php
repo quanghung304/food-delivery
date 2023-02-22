@@ -24,4 +24,5 @@ return [
     'code_has_expired' => 'The verification code has expired!',
     'check_code_success' => 'Code verification is success!',
     'reset_password_success' => "Reset password successfully!",
+    'logout_success' => 'Log out successfully!',
 ];

@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
         Admin::truncate();
 
         DB::table('admins')->insert([
-            'email' => 'support@adamodigital.com',
+            'email' => 'caohung304@gmail.com',
             'name' => 'Admin',
             'password' => Hash::make('12345678'),
         ]);

@@ -140,7 +140,7 @@ class AuthController extends Controller
     {
         $request->user()->token()->revoke();
         return response()->json([
-            'message' => __('api.logout.success'),
+            'message' => __('api.logout_success'),
         ], 200);
     }
 }
