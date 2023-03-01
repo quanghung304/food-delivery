@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,13 @@ Route::group(['prefix' => 'auth'], function (){
     route::post('reset-password', [AuthController::class, 'resetPassword']);
 });
 
-Route::group(['middleware' => ['auth:api']], function (){
+Route::group(['middleware' => ['auth:api, email.verified']], function (){
     route::get('logout', [AuthController::class, 'logout']);
+});
+
+Route::group(['prefix' => 'category'], function (){
+   route::post('create', [CategoryController::class, 'create']);
+   route::get('getAll', [CategoryController::class, 'getCategoryList']);
+   route::put('update/{id}', [CategoryController::class, 'updateCategory']);
+   route::delete('delete/{id}', [CategoryController::class, 'deleteCategory']);
 });
