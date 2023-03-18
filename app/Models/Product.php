@@ -18,4 +18,17 @@ class Product extends Model
     {
         return Product::where('name', $productName)->first();
     }
+
+    public function searchProduct($request)
+    {
+        $data = Product::query();
+        if($request->category_id) {
+            $data =$data->where('category_id', $request->category_id);
+        }
+
+        if($request->name) {
+            $data->where('name', 'like', '%' . $request->name . '%');
+        }
+        return $data;
+    }
 }
