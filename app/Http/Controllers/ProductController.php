@@ -100,4 +100,9 @@ class ProductController extends Controller
         return response()->json([
         ], 200);
     }
+
+    public function searchProduct(Request $request)
+    {
+        $productList = $this->productModel->searchProduct($request);
+    }
 }
